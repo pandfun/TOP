@@ -2,6 +2,7 @@ const renderBtn = document.getElementById("render-btn")
 const rowInput = document.getElementById("row-input")
 const colInput = document.getElementById("col-input")
 const clrBtn = document.getElementById("clear-render")
+const rndClrsCheckbox = document.getElementById("rnd-colors-toggle")
 
 renderBtn.addEventListener("click", () => {
     const rows = rowInput.value
@@ -13,7 +14,11 @@ renderBtn.addEventListener("click", () => {
     }
 
     if (rows > 100 || cols > 100) {
-        alert("Did not render")
+        alert(
+            "Using high values may consume lot of system resources. Use a smaller value (<100)"
+        )
+        rowInput.value = ""
+        colInput.value = ""
         return
     }
 
@@ -63,10 +68,14 @@ const renderGrid = (rows, cols) => {
 }
 
 const handleGridHovering = (targetDiv) => {
-    if (targetDiv) {
+    if (!targetDiv) return
+
+    if (rndClrsCheckbox.checked) {
         targetDiv.style.backgroundColor = `rgb(${Math.random() * 255}, ${
             Math.random() * 255
         }, ${Math.random() * 255})`
         console.log("inside hover")
+    } else {
+        targetDiv.style.backgroundColor = "black"
     }
 }

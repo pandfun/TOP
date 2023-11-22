@@ -44,6 +44,29 @@ body {
     border: 2px solid black;
 }
 
+.gradient-text {
+    background: linear-gradient(
+        to right,
+        violet,
+        indigo,
+        blue,
+        green,
+        yellow,
+        orange,
+        red
+    ); /* Rainbow colors */
+    -webkit-background-clip: text; /* For Safari/Chrome/iOS */
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to reveal the gradient background */
+
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#rnd-colors-toggle {
+    margin-left: 20px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
